@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.localization.Localizer;
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.jetbrains.annotations.NotNull;
@@ -9,10 +10,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class DistanceSensorLocalizer implements Localizer {
 
-    private double xDistance, yDistance;
+    private HardwareMap hardwareMap;
+    private BNO055IMU imu;
 
-    public DistanceSensorLocalizer(HardwareMap harwareMap, SampleMecanumDrive drive) {
 
+    public DistanceSensorLocalizer(HardwareMap hardwareMap, SampleMecanumDrive drive, BNO055IMU imu) {
+        this.hardwareMap = hardwareMap;
+        this.imu = imu;
     }
 
     @NotNull
